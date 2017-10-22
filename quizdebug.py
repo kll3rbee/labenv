@@ -18,9 +18,9 @@
 #   return c
 #
 
-def sqr(a):
-    sq = a * a
-    return sq
+#def sqr(a):
+#   sq = a * a
+#   return sq
 
 # To test your procedure, uncomment the print 
 # statement below, by removing the hash mark (#) 
@@ -34,4 +34,23 @@ def sqr(a):
 #print square(5)
 #>>> 25
 
-print sqr(4)
+#print sqr(4)
+# print udacify('dacians')
+
+
+def udacify (a):
+    return 'U'+a[0:]
+
+
+
+
+# Remove the hash, #, from infront of print to test your code.
+
+#print udacify('dacians')
+#>>> Udacians
+
+print udacify('turn')
+#>>> Uturn
+
+#print udacify('boat')
+#>>> Uboat
