@@ -14,8 +14,8 @@ def remove(somestring, sub):
 
 # 
 # Don't change these test cases!
-'''print remove('audacity', 'a')
-print remove('pythonic', 'ic')'''
+print remove('audacity', 'a')
+print remove('pythonic', 'ic')
 print remove('substring institution', 'string in')
 print remove('ding', 'do')  # "do" isn't in "ding"; should print "ding"
 print remove('doomy', 'dooming')  # and this should print "doomy"
