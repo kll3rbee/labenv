@@ -10,9 +10,7 @@
 daysOfMonths = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
 def isLeapYear(year):
-	if year%400 == 0:
-		return 1
-	elif year%4 == 0 and year%100 != 0:
+	if year%400 == 0 or (year%4 == 0 and year%100 != 0):
 		return 1
 	else:
 		return 0
@@ -67,5 +65,5 @@ def daysBetweenDates(y1, m1, d1, y2, m2, d2):
 	else:
 		days = 0 
 
-print daysBetweenDates (2000, 11, 01, 2007, 11, 01)
-print isLeapYear(2400)
+print daysBetweenDates (2013, 1, 24, 2013, 6, 29)
+print isLeapYear(2001)
