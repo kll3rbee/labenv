@@ -10,14 +10,16 @@
 daysOfMonths = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
 def isLeapYear(year):
-	if year%400 == 0 or (year%4 == 0 and year%100 != 0):
+	if year%400 == 0:
+		return 1
+	elif year%4 == 0 and year%100 != 0:
 		return 1
 	else:
 		return 0
 
 def daysBetweenDates(y1, m1, d1, y2, m2, d2):
 	days = d2 #days in current month
-	byrneg = 0
+	byrneg = d1
 	ycnt = y2 - y1
 	mcnt = m2 - m1
 	if ycnt < 0: # if negative year
@@ -40,7 +42,7 @@ def daysBetweenDates(y1, m1, d1, y2, m2, d2):
 	elif ycnt == 1: # if a year old
 		for i in range(m2-1):
 			days += daysOfMonths[i] #days for the current year
-		for i in range(m1):
+		for i in range(m1-1):
 			byrneg += daysOfMonths[i] # neg birth year days
 		if isLeapYear(y1) == 1: # days for birth year
 			days += (366 - byrneg)
@@ -48,16 +50,16 @@ def daysBetweenDates(y1, m1, d1, y2, m2, d2):
 			days += (365 - byrneg)
 		return days
 	elif ycnt > 1:
-		for i in range(m2-1):
+		for i in range(m2 - 1):
 			days += daysOfMonths[i] #days for the current year
-		for i in range(m1):
+		for i in range(m1 - 1):
 			byrneg += daysOfMonths[i] # neg birth year days
 		if isLeapYear(y1) == 1: # days for birth year
 			days += (366 - byrneg)
 		else:
 			days += (365 - byrneg)
 		for i in range(y1+1, y2): #total days not including curent and first year
-			if isLeapYear(y1) == 1:
+			if isLeapYear(i) == 1:
 				days += 366
 			else:
 				days += 365
@@ -65,4 +67,5 @@ def daysBetweenDates(y1, m1, d1, y2, m2, d2):
 	else:
 		days = 0 
 
-print daysBetweenDates (1976, 9, 17, 1977, 9, 17)
+print daysBetweenDates (2000, 11, 01, 2007, 11, 01)
+print isLeapYear(2400)
