@@ -7,13 +7,13 @@
 # IMPORTANT: You don't need to solve the problem yet! 
 # Just brainstorm ways you might approach it!
 
-#daysOfMonths = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+daysOfMonths = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
 def isLeapYear(year):
 	if year%400 == 0 or (year%4 == 0 and year%100 != 0):
-		print("%d is a Leap Year" %year)
+		return 1
 	else:
-		print("%d is Not the Leap Year" %year)
+		return 0
 
 def daysBetweenDates(y1, m1, d1, y2, m2, d2):
     return days
