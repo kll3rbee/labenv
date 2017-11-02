@@ -42,7 +42,7 @@ def daysBetweenDates(y1, m1, d1, y2, m2, d2):
 			days += daysOfMonths[i] #days for the current year
 		for i in range(m1-1):
 			byrneg += daysOfMonths[i] # neg birth year days
-		if isLeapYear(y1) == 1: # days for birth year
+		if isLeapYear(y1) == 1 and m1 < 3: # days for birth year
 			days += (366 - byrneg)
 		else:
 			days += (365 - byrneg)
@@ -52,7 +52,7 @@ def daysBetweenDates(y1, m1, d1, y2, m2, d2):
 			days += daysOfMonths[i] #days for the current year
 		for i in range(m1 - 1):
 			byrneg += daysOfMonths[i] # neg birth year days
-		if isLeapYear(y1) == 1: # days for birth year
+		if isLeapYear(y1) == 1 or m1 < 3: # days for birth year
 			days += (366 - byrneg)
 		else:
 			days += (365 - byrneg)
@@ -65,5 +65,19 @@ def daysBetweenDates(y1, m1, d1, y2, m2, d2):
 	else:
 		days = 0 
 
-print daysBetweenDates (2013, 1, 24, 2013, 6, 29)
-print isLeapYear(2001)
+#print daysBetweenDates (2013, 1, 24, 2013, 6, 29)
+def test():
+    test_cases = [((2012,1,1,2012,2,28), 58), 
+                  ((2012,1,1,2012,3,1), 60),
+                  ((2011,6,30,2012,6,30), 366),
+                  ((2011,1,1,2012,8,8), 585 ),
+                  ((1900,1,1,1999,12,31), 36523)]
+    
+    for (args, answer) in test_cases:
+        result = daysBetweenDates(*args)
+        if result != answer:
+            print "Test with data:", args, "failed"
+        else:
+            print "Test case passed!"
+
+test()
